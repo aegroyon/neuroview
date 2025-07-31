@@ -17,8 +17,10 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
             {/* Logo placeholder */}
-            <div className="w-8 h-8 bg-white/20 rounded border border-white/30"></div>
-            
+            <div className ="w-8 h-8 border-white/30 mr-3"
+              style={{ backgroundImage: "url('/Vector.png')", backgroundSize: 'cover' }}
+            ></div>
+
             {/* Navigation links */}
             <nav className="flex space-x-8">
               {navItems.map((item) => (

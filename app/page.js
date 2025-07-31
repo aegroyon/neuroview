@@ -2,12 +2,15 @@ export default function Home() {
   return (
     <div className="bg-black min-h-screen" style={{fontFamily: 'system-ui, -apple-system, sans-serif'}}>
       {/* Hero Section */}
-      <section className="h-screen flex items-center justify-start overflow-hidden bg-gradient-to-br from-purple-900 via-blue-900 to-teal-500 relative">
+      <section
+        className="h-screen flex items-center justify-start overflow-hidden relative"
+        style={{ backgroundImage: "url('../71.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
         {/* Background overlay */}
         <div className="bg-black/40 w-full h-full flex items-center">
           <div className="max-w-full w-full mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
-              <h1 className="text-7xl font-bold text-white mb-6" style={{fontFamily: 'system-ui, -apple-system, sans-serif'}}>
+              <h1 className="text-7xl font-bold text-white mb-6" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
                 NeuroView
               </h1>
               <p className="text-lg text-white/90 leading-relaxed">

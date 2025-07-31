@@ -7,7 +7,9 @@ export default function Footer() {
           {/* Logo and NeuroView */}
           <div>
             <div className="flex flex-col items-start">
-              <div className="w-8 h-8 bg-white/20 rounded border border-white/30 mb-3"></div>
+            <div className ="w-8 h-8 border-white/30 mr-3"
+              style={{ backgroundImage: "url('/Vector.png')", backgroundSize: 'cover' }}
+            ></div>
               <span className="text-xl font-bold">NeuroView</span>
             </div>
           </div>

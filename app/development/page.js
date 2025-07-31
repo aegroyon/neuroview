@@ -5,8 +5,13 @@ export default function DevelopmentPage() {
       style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
     >
       {/* Full-page Background Gradient with Overlay */}
+      
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full bg-gradient-to-br from-blue-900 via-purple-900 to-orange-800" />
+        <div
+          className="absolute inset-0"
+          style={{ backgroundImage: "url('../16.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+        />
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
