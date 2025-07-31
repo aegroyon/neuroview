@@ -1,83 +1,79 @@
 export default function DevelopmentPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Development Objectives</h1>
-      
-      <div className="space-y-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4 text-blue-600">Project Overview</h2>
-          <p className="text-gray-700 leading-relaxed">
-            NeuroView is an advanced brain tumor detection system that leverages artificial intelligence 
-            to analyze MRI scans and provide accurate tumor detection results. Our goal is to assist 
-            medical professionals in early detection and diagnosis of brain tumors.
-          </p>
-        </section>
+    <div
+      className="relative bg-black min-h-screen text-white overflow-hidden"
+      style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+    >
+      {/* Full-page Background Gradient with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="w-full h-full bg-gradient-to-br from-blue-900 via-purple-900 to-orange-800" />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4 text-blue-600">Key Objectives</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-blue-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-2">AI-Powered Analysis</h3>
-              <p className="text-gray-700">
-                Implement machine learning algorithms to detect and classify brain tumors 
-                from MRI scan images with high accuracy.
+      {/* Main Content */}
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-full w-full mx-auto">
+            <h1 className="text-6xl font-bold text-white mb-4">Development Overview</h1>
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
+              A deeper look into how NeuroView was built
+            </p>
+
+            <div className="mt-16 max-w-4xl mx-auto">
+              <p className="text-white/90 leading-relaxed mb-8">
+                The development of NeuroView was grounded in a practical research objective: to build a deep
+                learning system capable of analyzing brain MRI scans for tumor detection. This system was
+                designed with clinical use in mind, focusing on accuracy, interpretability, and speed.
               </p>
-            </div>
-            <div className="bg-green-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-2">User-Friendly Interface</h3>
-              <p className="text-gray-700">
-                Create an intuitive web interface for medical professionals to upload 
-                and analyze brain scan images easily.
-              </p>
-            </div>
-            <div className="bg-purple-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-2">Data Management</h3>
-              <p className="text-gray-700">
-                Develop a secure system for storing and managing patient scan data 
-                with proper privacy controls.
-              </p>
-            </div>
-            <div className="bg-orange-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold mb-2">Real-time Processing</h3>
-              <p className="text-gray-700">
-                Enable fast and efficient processing of brain scan images 
-                to provide quick diagnostic results.
+
+              <p className="text-white/90 leading-relaxed">
+                Unlike many implementations that rely on pre-trained architectures,{' '}
+                <span className="font-semibold">NeuroView's neural network was built entirely from scratch.</span>{' '}
+                Each layer and parameter was designed, tuned, and tested to suit the specific characteristics
+                of brain imaging data.
               </p>
             </div>
           </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4 text-blue-600">Technology Stack</h2>
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <ul className="space-y-2 text-gray-700">
-              <li><strong>Frontend:</strong> Next.js, React, Tailwind CSS</li>
-              <li><strong>Backend:</strong> Node.js, Express (planned)</li>
-              <li><strong>Database:</strong> Supabase (PostgreSQL)</li>
-              <li><strong>AI/ML:</strong> Python, TensorFlow/PyTorch (planned)</li>
-              <li><strong>Image Processing:</strong> OpenCV, NumPy (planned)</li>
-            </ul>
-          </div>
-        </section>
+        {/* Development Steps Section */}
+        <section className="min-h-screen flex flex-col items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <div className="max-w-2xl mx-auto space-y-16">
+              {/* Dataset & Preprocessing */}
+              <div>
+                <div className="w-12 h-12 bg-white/10 rounded border border-white/20 mx-auto mb-4"></div>
+                <h3 className="text-2xl font-semibold mb-4">Dataset & Preprocessing</h3>
+              </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4 text-blue-600">Development Phases</h2>
-          <div className="space-y-4">
-            <div className="border-l-4 border-blue-500 pl-4">
-              <h3 className="font-semibold">Phase 1: Foundation</h3>
-              <p className="text-gray-700">Set up the basic web application with user interface and data storage.</p>
-            </div>
-            <div className="border-l-4 border-green-500 pl-4">
-              <h3 className="font-semibold">Phase 2: AI Integration</h3>
-              <p className="text-gray-700">Integrate machine learning models for brain tumor detection.</p>
-            </div>
-            <div className="border-l-4 border-purple-500 pl-4">
-              <h3 className="font-semibold">Phase 3: Optimization</h3>
-              <p className="text-gray-700">Improve accuracy, performance, and user experience.</p>
+              {/* Model Architecture */}
+              <div>
+                <div className="w-12 h-12 bg-white/10 rounded border border-white/20 mx-auto mb-4"></div>
+                <h3 className="text-2xl font-semibold mb-4">Model Architecture</h3>
+              </div>
+
+              {/* Training & Optimization */}
+              <div>
+                <div className="w-12 h-12 bg-white/10 rounded border border-white/20 mx-auto mb-4"></div>
+                <h3 className="text-2xl font-semibold mb-4">Training & Optimization</h3>
+              </div>
+
+              {/* Evaluation Metrics */}
+              <div>
+                <div className="w-12 h-12 bg-white/10 rounded border border-white/20 mx-auto mb-4"></div>
+                <h3 className="text-2xl font-semibold mb-4">Evaluation Metrics</h3>
+              </div>
+
+              {/* Future Improvements */}
+              <div>
+                <div className="w-12 h-12 bg-white/10 rounded border border-white/20 mx-auto mb-4"></div>
+                <h3 className="text-2xl font-semibold mb-4">Future Improvements</h3>
+              </div>
             </div>
           </div>
         </section>
       </div>
     </div>
   );
-} 
+}
