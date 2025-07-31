@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="bg-black min-h-screen" style={{fontFamily: 'system-ui, -apple-system, sans-serif'}}>
+    <div className="bg-black min-h-screen">
       {/* Hero Section */}
       <section
         className="h-screen flex items-center justify-start overflow-hidden relative"
@@ -10,8 +10,8 @@ export default function Home() {
         <div className="bg-black/40 w-full h-full flex items-center">
           <div className="max-w-full w-full mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
-              <h1 className="text-7xl font-bold text-white mb-6" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-                NeuroView
+              <h1 className="text-7xl font-bold text-white mb-6">
+                <img src="/NeuroView-big.png" alt="NeuroView Logo" className="w-auto mx-auto" />
               </h1>
               <p className="text-lg text-white/90 leading-relaxed">
                 Designed for accuracy, speed, and ease of use, NeuroView
@@ -28,8 +28,8 @@ export default function Home() {
       {/* Features Section */}
       <section className="h-screen bg-black text-white flex items-center overflow-hidden">
         <div className="max-w-full w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-end mb-16">
-            <div className="text-right">
+          <div className="mb-16">
+            <div className="text-left">
               <p className="text-gray-400 text-sm mb-2 tracking-wider">FEATURES</p>
               <h2 className="text-4xl font-bold">At the core</h2>
             </div>
@@ -40,7 +40,7 @@ export default function Home() {
             <div className="px-8 border-r border-gray-700">
               <div className="mb-6">
                 {/* Icon placeholder */}
-                <div className="w-12 h-12 bg-white/10 rounded border border-white/20 mb-4"></div>
+                <img src="/td.png" alt="Tumor Detection" className="w-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-3">Tumor Detection</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Uses advanced machine learning
@@ -58,7 +58,7 @@ export default function Home() {
             <div className="px-8 border-r border-gray-700">
               <div className="mb-6">
                 {/* Icon placeholder */}
-                <div className="w-12 h-12 bg-white/10 rounded border border-white/20 mb-4"></div>
+                <img src="/fui.png" alt="Fast & Intuitive Interface" className="w-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-3">Fast & Intuitive Interface</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Designed for medical environments and
@@ -78,7 +78,7 @@ export default function Home() {
             <div className="px-8">
               <div className="mb-6">
                 {/* Icon placeholder */}
-                <div className="w-12 h-12 bg-white/10 rounded border border-white/20 mb-4"></div>
+                <img src="/dvi.png" alt="Detailed Visual Insights" className="w-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-3">Detailed Visual Insights</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Generates annotated images with
@@ -97,8 +97,8 @@ export default function Home() {
 
       {/* How It Works Section */}
       <section className="h-screen bg-black text-white flex flex-col items-center justify-center overflow-hidden">
-        <div className="max-w-full w-full mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-12">
+        <div className="max-w-full w-full mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-right">
             <p className="text-gray-400 text-sm mb-4 tracking-wider">HOW IT WORKS</p>
             <h2 className="text-4xl font-bold">From Scans to Insights in Three Steps</h2>
           </div>
@@ -128,7 +128,9 @@ export default function Home() {
             
             {/* Text content */}
             <div>
-              <h2 className="text-4xl font-bold mb-4">NeuroView</h2>
+              <h2 className="text-4xl font-bold mb-4">
+                <img src="/NeuroView-small.png" alt="NeuroView Logo" className="w-auto" />
+              </h2>
               <h3 className="text-2xl font-semibold mb-6 text-gray-300">Available on Android</h3>
               <p className="text-gray-400 leading-relaxed">
                 Access AI-powered brain scan analysis

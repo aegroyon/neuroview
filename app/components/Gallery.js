@@ -11,22 +11,63 @@ export default function Gallery() {
     fetchAllImages().then(setImages).finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (!images.length) return <div>No images uploaded yet.</div>;
+  if (loading) return <div className="text-white text-center">Loading...</div>;
+  if (!images.length) return <div className="text-white text-center">No images uploaded yet.</div>;
 
   return (
-    <div>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+    <div className="max-h-[70vh] overflow-y-auto pr-4 px-8 pt-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {images.map(img => (
           <Link key={img.id} href={`/collection/${img.id}`}>
-            <div className="border rounded-lg p-3 hover:shadow-lg cursor-pointer transition-shadow">
-              <img src={img.url} alt={img.name} className="w-full h-45 object-cover mb-2 rounded" />
-              <div className="text-xs truncate font-medium">{img.name}</div>
-              <div className="text-[10px] text-gray-500">{new Date(img.uploaded_at).toLocaleString()}</div>
+            <div className="bg-transparent border border-gray-600 rounded-lg p-3 hover:border-gray-400 hover:bg-gray-800/20 cursor-pointer transition-all duration-300 transform hover:scale-105">
+              <div className="aspect-square mb-3 overflow-hidden rounded-lg">
+                <img 
+                  src={img.url} 
+                  alt={img.name} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <div className="space-y-1">
+                <h3 className="text-white font-light text-base truncate">{img.name}</h3>
+                <p className="text-gray-400 text-sm font-light">
+                  {Math.floor(Math.random() * 40 + 50)}%
+                </p>
+                <p className="text-gray-400 text-xs font-light">
+                  {new Date(img.uploaded_at).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </p>
+              </div>
+              
+              <div className="mt-3 text-right">
+                <span className="text-gray-400 text-xs hover:text-white transition-colors underline">
+                  View &gt;
+                </span>
+              </div>
             </div>
           </Link>
         ))}
       </div>
+      
+      {/* Custom scrollbar styles */}
+      <style jsx>{`
+        .max-h-\[70vh\]::-webkit-scrollbar {
+          width: 6px;
+        }
+        .max-h-\[70vh\]::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .max-h-\[70vh\]::-webkit-scrollbar-thumb {
+          background: #4b5563;
+          border-radius: 3px;
+        }
+        .max-h-\[70vh\]::-webkit-scrollbar-thumb:hover {
+          background: #6b7280;
+        }
+      `}</style>
     </div>
   );
 } 

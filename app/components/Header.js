@@ -27,13 +27,16 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-sm font-light transition-all duration-300 relative ${
                     pathname === item.href
                       ? 'text-white'
                       : 'text-white/80 hover:text-white'
                   }`}
                 >
                   {item.label}
+                  {pathname === item.href && (
+                    <span className="absolute bottom-[-8px] left-0 right-0 h-0.5 bg-white rounded-full animate-in slide-in-from-left-2 duration-300"></span>
+                  )}
                 </Link>
               ))}
             </nav>
