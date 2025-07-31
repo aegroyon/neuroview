@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { fetchAllImages } from '../../models/imageModel';
+import { supabase } from '../../utils/supabaseClient';
 
 export default function Gallery() {
   const [images, setImages] = useState([]);
@@ -31,7 +32,10 @@ export default function Gallery() {
               <div className="space-y-1">
                 <h3 className="text-white font-light text-base truncate">{img.name}</h3>
                 <p className="text-gray-400 text-sm font-light">
-                  {Math.floor(Math.random() * 40 + 50)}%
+                  {img.information ? 
+                    `${img.information.tumor_type} (${(img.information.confidence * 100).toFixed(1)}%)` :
+                    'Pending Analysis'
+                  }
                 </p>
                 <p className="text-gray-400 text-xs font-light">
                   {new Date(img.uploaded_at).toLocaleDateString('en-US', {
@@ -44,7 +48,7 @@ export default function Gallery() {
               
               <div className="mt-3 text-right">
                 <span className="text-gray-400 text-xs hover:text-white transition-colors underline">
-                  View &gt;
+                  View Details &gt;
                 </span>
               </div>
             </div>
@@ -70,4 +74,4 @@ export default function Gallery() {
       `}</style>
     </div>
   );
-} 
+}

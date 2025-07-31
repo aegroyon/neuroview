@@ -2,13 +2,17 @@
 import { useState } from 'react';
 import { handleImageUpload } from '../../controllers/imageController';
 import Header from '../components/Header';
+import ResultModal from '../components/ResultModal';
+import { useRouter } from 'next/navigation';
 
 export default function InputPage() {
+  const router = useRouter();
   const [file, setFile] = useState(null);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [dragActive, setDragActive] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const onFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -47,11 +51,15 @@ export default function InputPage() {
     setError(null);
     try {
       const res = await handleImageUpload(file);
+      console.log('Upload result:', res);
       setResult(res);
+      setShowModal(true); // Show modal after successful upload
     } catch (err) {
-      setError(err.message || JSON.stringify(err));
+      console.error('Upload error:', err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -141,16 +149,15 @@ export default function InputPage() {
             </div>
           )}
 
-          {/* Result Display */}
-          {result && (
-            <div className="mt-8 p-6 bg-gray-800/50 border border-gray-700 rounded-lg">
-              <h3 className="text-lg font-light text-white mb-4">Analysis Result</h3>
-              <p className="text-gray-300 mb-4">Detection Result: {result.detection}</p>
-              <img src={result.imageUrl} alt="Analyzed brain scan" className="max-w-md mx-auto rounded-lg" />
-            </div>
-          )}
+          {/* Result Modal */}
+          <ResultModal
+            isOpen={showModal}
+            onClose={() => setShowModal(false)}
+            result={result}
+            onGoToCollection={() => router.push('/collection')}
+          />
         </div>
       </div>
     </div>
   );
-} 
+}

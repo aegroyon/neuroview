@@ -135,10 +135,11 @@ export default function UploadForm() {
       {result && (
         <div className="mt-8 p-6 bg-gray-800/50 border border-gray-700 rounded-lg">
           <h3 className="text-lg font-light text-white mb-4">Analysis Result</h3>
-          <p className="text-gray-300 mb-4">Detection Result: {result.detection}</p>
+          <p className="text-gray-300 mb-2">Detection Result: {result.detection}</p>
+          <p className="text-gray-300 mb-4">Confidence: {(result.confidence * 100).toFixed(2)}%</p>
           <img src={result.imageUrl} alt="Analyzed brain scan" className="max-w-md mx-auto rounded-lg" />
         </div>
       )}
     </div>
   );
-} 
+}
