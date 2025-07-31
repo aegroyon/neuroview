@@ -1,7 +1,7 @@
 // View: Upload form for brain scan images
 'use client';
 import { useState } from 'react';
-import { handleImageUpload } from '../controllers/imageController';
+import { handleImageUpload } from '../../controllers/imageController';
 
 export default function UploadForm() {
   const [file, setFile] = useState(null);

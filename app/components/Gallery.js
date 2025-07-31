@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { fetchAllImages } from '../models/imageModel';
+import { fetchAllImages } from '../../models/imageModel';
 
 export default function Gallery() {
   const [images, setImages] = useState([]);
@@ -16,13 +16,12 @@ export default function Gallery() {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Uploaded Images</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {images.map(img => (
-          <Link key={img.id} href={`/gallery/${img.id}`}>
-            <div className="border rounded p-2 hover:shadow cursor-pointer">
-              <img src={img.url} alt={img.name} className="w-full h-32 object-cover mb-2" />
-              <div className="text-xs truncate">{img.name}</div>
+          <Link key={img.id} href={`/collection/${img.id}`}>
+            <div className="border rounded-lg p-3 hover:shadow-lg cursor-pointer transition-shadow">
+              <img src={img.url} alt={img.name} className="w-full h-32 object-cover mb-2 rounded" />
+              <div className="text-xs truncate font-medium">{img.name}</div>
               <div className="text-[10px] text-gray-500">{new Date(img.uploaded_at).toLocaleString()}</div>
             </div>
           </Link>

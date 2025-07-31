@@ -1,11 +1,11 @@
-import ImageDetail from '../../views/ImageDetail';
+import ImageDetail from '../../components/ImageDetail';
 
 export default async function ImageDetailPage({ params }) {
   // Await params if needed (for Next.js 14+)
   const resolvedParams = await params;
   return (
-    <main className="flex flex-col items-center min-h-screen p-8">
+    <div className="max-w-6xl mx-auto px-4 py-8">
       <ImageDetail id={resolvedParams.id} />
-    </main>
+    </div>
   );
 } 
