@@ -1,18 +1,35 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { fetchAllImages } from '../../models/imageModel';
-import { supabase } from '../../utils/supabaseClient';
+import { fetchAllImages } from '../../services/apiService';
 
 export default function Gallery() {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchAllImages().then(setImages).finally(() => setLoading(false));
+    const loadImages = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const response = await fetchAllImages();
+        // Backend returns {count: number, data: [...]} format
+        setImages(response.data || []);
+      } catch (err) {
+        console.error('Failed to fetch images:', err);
+        setError(err.message);
+        setImages([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadImages();
   }, []);
 
   if (loading) return <div className="text-white text-center">Loading...</div>;
+  if (error) return <div className="text-red-400 text-center">Error: {error}</div>;
   if (!images.length) return <div className="text-white text-center">No images uploaded yet.</div>;
 
   return (

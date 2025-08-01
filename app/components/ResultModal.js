@@ -59,7 +59,7 @@ export default function ResultModal({ isOpen, onClose, result, onGoToCollection 
                 <div>
                   <h4 className="text-lg text-gray-300 mb-6">Predicted Diagnosis:</h4>
                   <p className="text-3xl font-light text-white mb-8 capitalize">
-                    {result.data.tumor_type}
+                    {result.detection || result.data?.tumor_type || result.prediction?.tumor_type || 'Unknown'}
                   </p>
                 </div>
 
@@ -67,11 +67,16 @@ export default function ResultModal({ isOpen, onClose, result, onGoToCollection 
                 <div>
                   <h4 className="text-lg text-gray-300 mb-4">Class Probabilities:</h4>
                   <div className="space-y-4">
-                    {Object.entries(result.data.class_probabilities).map(([className, probability]) => (
+                    {Object.entries(
+                      result.class_probabilities || 
+                      result.data?.class_probabilities || 
+                      result.prediction?.class_probabilities || 
+                      {}
+                    ).map(([className, probability]) => (
                       <div key={className}>
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-sm font-medium text-gray-300 capitalize">
-                            {className}
+                            {className === 'notumor' ? 'No Tumor' : className}
                           </span>
                           <span className="text-sm font-medium text-gray-300">
                             {(probability * 100).toFixed(1)}%

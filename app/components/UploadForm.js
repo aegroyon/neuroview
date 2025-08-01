@@ -45,6 +45,7 @@ export default function UploadForm() {
     if (!file) return;
     setLoading(true);
     setError(null);
+    setResult(null);
     try {
       const res = await handleImageUpload(file);
       setResult(res);
