@@ -4,7 +4,7 @@ export default function DevelopmentPage() {
       {/* Full-page Background Gradient with Overlay */}
 
       <div className="absolute inset-0 z-0">
-        <div className="w-full h-full bg-gradient-to-br from-blue-900 via-purple-900 to-orange-800" />
+        <div className="w-full h-full" />
         <div
           className="absolute inset-0"
           style={{
@@ -214,27 +214,84 @@ export default function DevelopmentPage() {
                 />
                 <h3 className="text-2xl font-light mb-4">Evaluation Metrics</h3>
                 <div className="mt-16 max-w-4xl mx-auto">
+                  <p className="text-white/90 leading-relaxed mb-6 font-light">
+                    The model demonstrated{" "}
+                    <span className="font-semibold">
+                      high classification performance
+                    </span>{" "}
+                    on unseen data. It achieved a{" "}
+                    <span className="font-semibold">
+                      test accuracy of 93.52%
+                    </span>
+                    , closely matching the{" "}
+                    <span className="font-semibold">
+                      validation accuracy of 93.61%
+                    </span>
+                    , resulting in a{" "}
+                    <span className="font-semibold">
+                      generalization gap of just 0.1%
+                    </span>
+                    . This small gap indicates that the model{" "}
+                    <span className="font-semibold">generalizes well</span> and
+                    is <span className="font-semibold">not overfitting</span> to
+                    the training data.
+                  </p>
+
+                  <p className="text-white/90 leading-relaxed mb-6 font-light">
+                    For the{" "}
+                    <span className="font-semibold">classification report</span>
+                    , the model consistently performed well across all{" "}
+                    <span className="font-semibold">four tumor classes</span>.
+                    The{" "}
+                    <span className="font-semibold">
+                      pituitary tumor class (Class 2)
+                    </span>{" "}
+                    stood out with the{" "}
+                    <span className="font-semibold">
+                      highest F1-score of 0.97
+                    </span>
+                    , reflecting both strong{" "}
+                    <span className="font-semibold">precision and recall</span>.
+                    On the other hand,{" "}
+                    <span className="font-semibold">meningioma (Class 1)</span>{" "}
+                    showed slightly lower
+                    <span className="font-semibold">recall at 0.86</span>,
+                    suggesting the model was less confident or occasionally
+                    misclassified these samples.
+                  </p>
+
+                  <p className="text-white/90 leading-relaxed mb-6 font-light">
+                    The <span className="font-semibold">confusion matrix</span>{" "}
+                    confirmed this trend, showing{" "}
+                    <span className="font-semibold">
+                      very few misclassifications
+                    </span>{" "}
+                    and{" "}
+                    <span className="font-semibold">
+                      well-separated class predictions
+                    </span>
+                    . Additionally, the{" "}
+                    <span className="font-semibold">
+                      prediction distribution
+                    </span>{" "}
+                    remained proportionally aligned with the{" "}
+                    <span className="font-semibold">
+                      true class distribution
+                    </span>
+                    , suggesting <span className="font-semibold">no bias</span>{" "}
+                    toward over- or under-represented classes.
+                  </p>
+
                   <p className="text-white/90 leading-relaxed mb-8 font-light">
-                    The model demonstrated high classification performance on
-                    unseen data. It achieved a test accuracy of 93.52%, closely
-                    matching the validation accuracy of 93.61%, resulting in a
-                    generalization gap of just 0.1%. This small gap indicates
-                    that the model generalizes well and is not overfitting to
-                    the training data. For the classification report, the model
-                    consistently performed well across all four tumor classes.
-                    The pituitary tumor class (Class 2) stood out with the
-                    highest F1-score of 0.97, reflecting both strong precision
-                    and recall. On the other hand, meningioma (Class 1) showed
-                    slightly lower recall at 0.86, suggesting the model was less
-                    confident or occasionally misclassified these samples. The
-                    confusion matrix confirmed this trend, showing very few
-                    misclassifications and well-separated class predictions.
-                    Additionally, the prediction distribution remained
-                    proportionally aligned with the true class distribution,
-                    suggesting no bias toward over- or under-represented
-                    classes. Overall, the metrics indicate a well-regularized,
-                    accurate, and robust model suitable for real-world tumor
-                    classification tasks.
+                    Overall, the metrics indicate a{" "}
+                    <span className="font-semibold">
+                      well-regularized, accurate, and robust model
+                    </span>{" "}
+                    suitable for{" "}
+                    <span className="font-semibold">
+                      real-world tumor classification tasks
+                    </span>
+                    .
                   </p>
                 </div>
               </div>

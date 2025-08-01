@@ -122,7 +122,7 @@ export default function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section className="h-screen bg-black text-white flex flex-col items-center justify-center overflow-hidden">
+      <section className="min-h-screen bg-black text-white py-16 overflow-hidden">
         <div className="max-w-full w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-right">
             <p className="text-gray-400 text-sm mb-4 tracking-wider">
@@ -133,9 +133,13 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Video/Image placeholder */}
-          <div className="w-full h-96 bg-gray-800 rounded-lg border border-gray-700 flex items-center justify-center">
-            <p className="text-gray-400">Video/Image Placeholder</p>
+          {/* Demo GIF */}
+          <div className="flex items-center justify-center">
+            <img
+              src="/demo neuroview.gif"
+              alt="NeuroView Demo"
+              className="max-w-full h-auto rounded-lg border border-gray-700"
+            />
           </div>
         </div>
       </section>
@@ -163,7 +167,7 @@ export default function Home() {
                 />
               </h2>
               <h3 className="text-2xl font-semibold mb-6 text-gray-300">
-                Available on Android
+                Also Available on Android
               </h3>
               <p className="text-gray-400 leading-relaxed">
                 Access AI-powered brain scan analysis
