@@ -8,6 +8,40 @@ export default function Gallery({ filter = "All" }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Format tumor type labels for display
+  const formatTumorType = (tumorType) => {
+    if (!tumorType) return "Pending Analysis";
+
+    switch (tumorType.toLowerCase()) {
+      case "notumor":
+        return "No Tumor";
+      case "glioma":
+        return "Glioma";
+      case "pituitary":
+        return "Pituitary";
+      case "meningioma":
+        return "Meningioma";
+      default:
+        return tumorType; // Return as-is if unknown type
+    }
+  };
+
+  // Map display filter names to backend values for filtering
+  const getBackendFilterValue = (displayFilter) => {
+    switch (displayFilter) {
+      case "No Tumor":
+        return "notumor";
+      case "Glioma":
+        return "glioma";
+      case "Pituitary":
+        return "pituitary";
+      case "Meningioma":
+        return "meningioma";
+      default:
+        return displayFilter.toLowerCase();
+    }
+  };
+
   useEffect(() => {
     const loadImages = async () => {
       try {
@@ -36,7 +70,8 @@ export default function Gallery({ filter = "All" }) {
           (img) =>
             img.information &&
             img.information.tumor_type &&
-            img.information.tumor_type.toLowerCase() === filter.toLowerCase()
+            img.information.tumor_type.toLowerCase() ===
+              getBackendFilterValue(filter)
         );
 
   if (loading) return <div className="text-white text-center">Loading...</div>;
@@ -80,14 +115,17 @@ export default function Gallery({ filter = "All" }) {
 
                 <div className="space-y-1">
                   <h3 className="text-white font-light text-base truncate">
-                    {img.name}
+                    {formatTumorType(img.information?.tumor_type)}
                   </h3>
                   <p className="text-gray-400 text-sm font-light">
                     {img.information
-                      ? `${img.information.tumor_type} (${(
-                          img.information.confidence * 100
-                        ).toFixed(1)}%)`
-                      : "Pending Analysis"}
+                      ? `${(img.information.confidence * 100).toFixed(
+                          1
+                        )}% confidence`
+                      : "Analysis in progress"}
+                  </p>
+                  <p className="text-gray-500 text-xs font-light truncate">
+                    {img.name}
                   </p>
                   <p className="text-gray-400 text-xs font-light">
                     {new Date(img.uploaded_at).toLocaleDateString("en-US", {
