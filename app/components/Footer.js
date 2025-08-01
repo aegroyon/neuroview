@@ -30,12 +30,12 @@ export default function Footer() {
             <h4 className="text-sm font-semibold mb-4 text-gray-400 tracking-wider">RESOURCES</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="https://colab.research.google.com/drive/11xFk8m2pBwlQAYAMbI9rFM0QmyTDfbdz?usp=sharing" className="hover:text-white transition-colors">
                   Google Colab
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset" className="hover:text-white transition-colors">
                   Dataset
                 </a>
               </li>
