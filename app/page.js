@@ -169,7 +169,7 @@ export default function Home() {
               <h3 className="text-2xl font-semibold mb-6 text-gray-300">
                 Also Available on Android
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed mb-8">
                 Access AI-powered brain scan analysis
                 <br />
                 anytime, anywhere. Upload MRI images
@@ -178,6 +178,24 @@ export default function Home() {
                 <br />
                 Android device.
               </p>
+
+              {/* Download Button */}
+              <a
+                href="https://drive.google.com/file/d/16TX8yjrVMSKREfLqu6894fVfgWV34iRx/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-200 shadow-lg hover:shadow-xl"
+              >
+                <svg
+                  className="w-6 h-6 mr-3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                  fill="currentColor"
+                >
+                  <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z" />
+                </svg>
+                Download for Android
+              </a>
             </div>
           </div>
         </div>
