@@ -8,7 +8,7 @@ export default function DevelopmentPage() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('../16.png')",
+            backgroundImage: "url('/16.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -96,6 +96,158 @@ export default function DevelopmentPage() {
                     file to facilitate easier handling and integration with
                     neural networks.
                   </p>
+
+                  {/* Dataset Analytics */}
+                  <div className="mt-16 space-y-12">
+                    {/* Class Distribution Chart */}
+                    <div className="bg-black/20 backdrop-blur-sm rounded-lg p-8 border border-white/10">
+                      <h4 className="text-xl font-medium text-white mb-6 text-center">
+                        Dataset Class Distribution
+                      </h4>
+                      <div className="space-y-4">
+                        {/* Glioma */}
+                        <div className="flex items-center space-x-4">
+                          <div className="w-24 text-sm text-white/80 font-medium">
+                            Glioma
+                          </div>
+                          <div className="flex-1 bg-white/10 rounded-full h-8 relative overflow-hidden">
+                            <div
+                              className="bg-gradient-to-r from-blue-500 to-blue-400 h-full rounded-full flex items-center justify-end pr-3"
+                              style={{ width: "23.1%" }}
+                            >
+                              <span className="text-xs font-medium text-white">
+                                1,321 (23.1%)
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Meningioma */}
+                        <div className="flex items-center space-x-4">
+                          <div className="w-24 text-sm text-white/80 font-medium">
+                            Meningioma
+                          </div>
+                          <div className="flex-1 bg-white/10 rounded-full h-8 relative overflow-hidden">
+                            <div
+                              className="bg-gradient-to-r from-green-500 to-green-400 h-full rounded-full flex items-center justify-end pr-3"
+                              style={{ width: "23.4%" }}
+                            >
+                              <span className="text-xs font-medium text-white">
+                                1,339 (23.4%)
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* No Tumor */}
+                        <div className="flex items-center space-x-4">
+                          <div className="w-24 text-sm text-white/80 font-medium">
+                            No Tumor
+                          </div>
+                          <div className="flex-1 bg-white/10 rounded-full h-8 relative overflow-hidden">
+                            <div
+                              className="bg-gradient-to-r from-red-500 to-red-400 h-full rounded-full flex items-center justify-end pr-3"
+                              style={{ width: "27.9%" }}
+                            >
+                              <span className="text-xs font-medium text-white">
+                                1,595 (27.9%)
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Pituitary */}
+                        <div className="flex items-center space-x-4">
+                          <div className="w-24 text-sm text-white/80 font-medium">
+                            Pituitary
+                          </div>
+                          <div className="flex-1 bg-white/10 rounded-full h-8 relative overflow-hidden">
+                            <div
+                              className="bg-gradient-to-r from-purple-500 to-purple-400 h-full rounded-full flex items-center justify-end pr-3"
+                              style={{ width: "25.5%" }}
+                            >
+                              <span className="text-xs font-medium text-white">
+                                1,457 (25.5%)
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-center text-white/60 text-sm mt-4">
+                        Total: 5,712 training images
+                      </div>
+                    </div>
+
+                    {/* Training vs Testing Split Chart */}
+                    <div className="bg-black/20 backdrop-blur-sm rounded-lg p-8 border border-white/10">
+                      <h4 className="text-xl font-medium text-white mb-6 text-center">
+                        Training vs Testing Split
+                      </h4>
+                      <div className="space-y-6">
+                        {/* Training Set */}
+                        <div className="flex items-center space-x-4">
+                          <div className="w-20 text-sm text-white/80 font-medium">
+                            Training
+                          </div>
+                          <div className="flex-1 bg-white/10 rounded-full h-10 relative overflow-hidden">
+                            <div
+                              className="bg-gradient-to-r from-cyan-500 to-cyan-400 h-full rounded-full flex items-center justify-center"
+                              style={{ width: "81.3%" }}
+                            >
+                              <span className="text-sm font-medium text-white">
+                                5,712 images (81.3%)
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Testing Set */}
+                        <div className="flex items-center space-x-4">
+                          <div className="w-20 text-sm text-white/80 font-medium">
+                            Testing
+                          </div>
+                          <div className="flex-1 bg-white/10 rounded-full h-10 relative overflow-hidden">
+                            <div
+                              className="bg-gradient-to-r from-orange-500 to-orange-400 h-full rounded-full flex items-center justify-center"
+                              style={{ width: "18.7%" }}
+                            >
+                              <span className="text-xs font-medium text-white">
+                                1,311 images (18.7%)
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-center text-white/60 text-sm mt-4">
+                        Total Dataset: 7,023 MRI images
+                      </div>
+                    </div>
+
+                    {/* Dataset Balance Analysis */}
+                    <div className="bg-black/20 backdrop-blur-sm rounded-lg p-8 border border-white/10">
+                      <h4 className="text-xl font-medium text-white mb-4 text-center">
+                        Dataset Balance Analysis
+                      </h4>
+                      <div className="flex flex-col sm:flex-row gap-6 text-center">
+                        <div className="flex-1 space-y-2">
+                          <div className="text-lg font-medium text-cyan-400">
+                            Imbalance Ratio: 1.21
+                          </div>
+                          <div className="text-sm text-white/60">
+                            (Max/Min class sizes)
+                          </div>
+                        </div>
+                        <div className="flex-1 space-y-2">
+                          <div className="text-lg font-medium text-green-400">
+                            Relatively Balanced
+                          </div>
+                          <div className="text-sm text-white/60">
+                            Dataset assessment
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                   <p className="text-white/90 leading-relaxed font-light"></p>
                 </div>
@@ -282,7 +434,501 @@ export default function DevelopmentPage() {
                     toward over- or under-represented classes.
                   </p>
 
-                  <p className="text-white/90 leading-relaxed mb-8 font-light">
+                  {/* Confusion Matrix Visualization */}
+                  <div className="mt-16 bg-black/20 backdrop-blur-sm rounded-lg p-8 border border-white/10">
+                    <h4 className="text-xl font-medium text-white mb-8 text-center">
+                      Confusion Matrix
+                    </h4>
+
+                    <div className="overflow-x-auto">
+                      <div className="min-w-full">
+                        {/* Matrix Headers */}
+                        <div className="flex items-center mb-4">
+                          <div className="w-32"></div>
+                          <div className="flex-1">
+                            <div className="text-sm font-medium text-white/80 mb-2 text-center">
+                              Predicted Label
+                            </div>
+                            <div className="flex items-center">
+                              <div className="w-20 pr-3"></div>
+                              <div className="flex flex-1">
+                                <div className="flex-1 text-xs text-white/60 text-center py-2 mx-0.5">
+                                  Class 0<br />
+                                  Glioma
+                                </div>
+                                <div className="flex-1 text-xs text-white/60 text-center py-2 mx-0.5">
+                                  Class 1<br />
+                                  Meningioma
+                                </div>
+                                <div className="flex-1 text-xs text-white/60 text-center py-2 mx-0.5">
+                                  Class 2<br />
+                                  Pituitary
+                                </div>
+                                <div className="flex-1 text-xs text-white/60 text-center py-2 mx-0.5">
+                                  Class 3<br />
+                                  No Tumor
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Matrix Rows */}
+                        <div className="flex items-center">
+                          {/* Y-axis label */}
+                          <div className="w-32 flex items-center justify-center">
+                            <div className="transform -rotate-90 text-sm font-medium text-white/80 whitespace-nowrap">
+                              True Label
+                            </div>
+                          </div>
+
+                          {/* Matrix Grid */}
+                          <div className="flex-1">
+                            {/* Class 0 - Glioma */}
+                            <div className="flex items-center mb-1">
+                              <div className="w-20 text-xs text-white/60 text-right pr-3">
+                                Class 0<br />
+                                Glioma
+                              </div>
+                              <div className="flex flex-1">
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.8)",
+                                  }}
+                                >
+                                  268
+                                </div>
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.3)",
+                                  }}
+                                >
+                                  30
+                                </div>
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.1)",
+                                  }}
+                                >
+                                  1
+                                </div>
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.1)",
+                                  }}
+                                >
+                                  1
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Class 1 - Meningioma */}
+                            <div className="flex items-center mb-1">
+                              <div className="w-20 text-xs text-white/60 text-right pr-3">
+                                Class 1<br />
+                                Meningioma
+                              </div>
+                              <div className="flex flex-1">
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.2)",
+                                  }}
+                                >
+                                  19
+                                </div>
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.75)",
+                                  }}
+                                >
+                                  263
+                                </div>
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.2)",
+                                  }}
+                                >
+                                  19
+                                </div>
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.15)",
+                                  }}
+                                >
+                                  5
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Class 2 - Pituitary */}
+                            <div className="flex items-center mb-1">
+                              <div className="w-20 text-xs text-white/60 text-right pr-3">
+                                Class 2<br />
+                                Pituitary
+                              </div>
+                              <div className="flex flex-1">
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.05)",
+                                  }}
+                                >
+                                  0
+                                </div>
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.15)",
+                                  }}
+                                >
+                                  6
+                                </div>
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(30, 64, 175, 0.9)",
+                                  }}
+                                >
+                                  399
+                                </div>
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.05)",
+                                  }}
+                                >
+                                  0
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Class 3 - No Tumor */}
+                            <div className="flex items-center">
+                              <div className="w-20 text-xs text-white/60 text-right pr-3">
+                                Class 3<br />
+                                No Tumor
+                              </div>
+                              <div className="flex flex-1">
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.1)",
+                                  }}
+                                >
+                                  1
+                                </div>
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.12)",
+                                  }}
+                                >
+                                  3
+                                </div>
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.05)",
+                                  }}
+                                >
+                                  0
+                                </div>
+                                <div
+                                  className="flex-1 h-16 mx-0.5 rounded flex items-center justify-center text-white font-medium text-sm"
+                                  style={{
+                                    backgroundColor: "rgba(59, 130, 246, 0.85)",
+                                  }}
+                                >
+                                  296
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Color Scale Legend */}
+                        <div className="mt-8 flex items-center justify-center space-x-4">
+                          <span className="text-xs text-white/60">Low</span>
+                          <div className="flex space-x-1">
+                            <div
+                              className="w-6 h-4 rounded"
+                              style={{
+                                backgroundColor: "rgba(59, 130, 246, 0.1)",
+                              }}
+                            ></div>
+                            <div
+                              className="w-6 h-4 rounded"
+                              style={{
+                                backgroundColor: "rgba(59, 130, 246, 0.3)",
+                              }}
+                            ></div>
+                            <div
+                              className="w-6 h-4 rounded"
+                              style={{
+                                backgroundColor: "rgba(59, 130, 246, 0.5)",
+                              }}
+                            ></div>
+                            <div
+                              className="w-6 h-4 rounded"
+                              style={{
+                                backgroundColor: "rgba(59, 130, 246, 0.7)",
+                              }}
+                            ></div>
+                            <div
+                              className="w-6 h-4 rounded"
+                              style={{
+                                backgroundColor: "rgba(30, 64, 175, 0.9)",
+                              }}
+                            ></div>
+                          </div>
+                          <span className="text-xs text-white/60">High</span>
+                        </div>
+
+                        {/* Matrix Statistics */}
+                        <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                          <div className="space-y-1">
+                            <div className="text-lg font-medium text-cyan-400">
+                              93.52%
+                            </div>
+                            <div className="text-xs text-white/60">
+                              Overall Accuracy
+                            </div>
+                          </div>
+                          <div className="space-y-1">
+                            <div className="text-lg font-medium text-green-400">
+                              1226
+                            </div>
+                            <div className="text-xs text-white/60">
+                              Correct Predictions
+                            </div>
+                          </div>
+                          <div className="space-y-1">
+                            <div className="text-lg font-medium text-orange-400">
+                              85
+                            </div>
+                            <div className="text-xs text-white/60">
+                              Misclassifications
+                            </div>
+                          </div>
+                          <div className="space-y-1">
+                            <div className="text-lg font-medium text-purple-400">
+                              1311
+                            </div>
+                            <div className="text-xs text-white/60">
+                              Total Samples
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Classification Report */}
+                  <div className="mt-16 bg-black/20 backdrop-blur-sm rounded-lg p-8 border border-white/10">
+                    <h4 className="text-xl font-medium text-white mb-8 text-center">
+                      Classification Report
+                    </h4>
+
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        {/* Header */}
+                        <thead>
+                          <tr className="border-b border-white/20">
+                            <th className="text-left py-3 px-4 text-white/80 font-medium">
+                              Class
+                            </th>
+                            <th className="text-center py-3 px-4 text-white/80 font-medium">
+                              Precision
+                            </th>
+                            <th className="text-center py-3 px-4 text-white/80 font-medium">
+                              Recall
+                            </th>
+                            <th className="text-center py-3 px-4 text-white/80 font-medium">
+                              F1-Score
+                            </th>
+                            <th className="text-center py-3 px-4 text-white/80 font-medium">
+                              Support
+                            </th>
+                          </tr>
+                        </thead>
+
+                        {/* Class Rows */}
+                        <tbody>
+                          {/* Class 0 - Glioma */}
+                          <tr className="border-b border-white/10 hover:bg-white/5 transition-colors">
+                            <td className="py-3 px-4">
+                              <div className="flex items-center space-x-3">
+                                <div className="w-4 h-4 rounded bg-blue-500"></div>
+                                <span className="text-white/90 font-medium">
+                                  0 - Glioma
+                                </span>
+                              </div>
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.93
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.89
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.91
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              300
+                            </td>
+                          </tr>
+
+                          {/* Class 1 - Meningioma */}
+                          <tr className="border-b border-white/10 hover:bg-white/5 transition-colors">
+                            <td className="py-3 px-4">
+                              <div className="flex items-center space-x-3">
+                                <div className="w-4 h-4 rounded bg-green-500"></div>
+                                <span className="text-white/90 font-medium">
+                                  1 - Meningioma
+                                </span>
+                              </div>
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.87
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.86
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.87
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              306
+                            </td>
+                          </tr>
+
+                          {/* Class 2 - Pituitary */}
+                          <tr className="border-b border-white/10 hover:bg-white/5 transition-colors">
+                            <td className="py-3 px-4">
+                              <div className="flex items-center space-x-3">
+                                <div className="w-4 h-4 rounded bg-purple-500"></div>
+                                <span className="text-white/90 font-medium">
+                                  2 - Pituitary
+                                </span>
+                              </div>
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.95
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.99
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded font-semibold">
+                                0.97
+                              </span>
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              405
+                            </td>
+                          </tr>
+
+                          {/* Class 3 - No Tumor */}
+                          <tr className="border-b border-white/10 hover:bg-white/5 transition-colors">
+                            <td className="py-3 px-4">
+                              <div className="flex items-center space-x-3">
+                                <div className="w-4 h-4 rounded bg-red-500"></div>
+                                <span className="text-white/90 font-medium">
+                                  3 - No Tumor
+                                </span>
+                              </div>
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.98
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.99
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded font-semibold">
+                                0.98
+                              </span>
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              300
+                            </td>
+                          </tr>
+                        </tbody>
+
+                        {/* Summary Section */}
+                        <tbody className="border-t-2 border-white/30">
+                          {/* Overall Accuracy */}
+                          <tr className="border-b border-white/10">
+                            <td className="py-3 px-4 text-cyan-400 font-semibold">
+                              Accuracy
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/60">
+                              -
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/60">
+                              -
+                            </td>
+                            <td className="text-center py-3 px-4">
+                              <span className="bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded font-mono font-semibold">
+                                0.94
+                              </span>
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              1311
+                            </td>
+                          </tr>
+
+                          {/* Macro Average */}
+                          <tr className="border-b border-white/10">
+                            <td className="py-3 px-4 text-orange-400 font-semibold">
+                              Macro Avg
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.93
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.93
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.93
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              1311
+                            </td>
+                          </tr>
+
+                          {/* Weighted Average */}
+                          <tr>
+                            <td className="py-3 px-4 text-purple-400 font-semibold">
+                              Weighted Avg
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.93
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.94
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              0.93
+                            </td>
+                            <td className="text-center py-3 px-4 text-white/90 font-mono">
+                              1311
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <p className="text-white/90 leading-relaxed mb-10 mt-10 font-light">
                     Overall, the metrics indicate a{" "}
                     <span className="font-semibold">
                       well-regularized, accurate, and robust model
