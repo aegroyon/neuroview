@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { fetchImageById } from "../../services/apiService";
+import { getImageById } from "../../utils/flaskAPI";
 import Link from "next/link";
 
 export default function ImageDetail({ id }) {
@@ -13,7 +13,7 @@ export default function ImageDetail({ id }) {
       try {
         setLoading(true);
         setError(null);
-        const response = await fetchImageById(id);
+        const response = await getImageById(id);
         // Backend returns {data: {...}, success: true} format
         setImage(response.data || response);
       } catch (err) {

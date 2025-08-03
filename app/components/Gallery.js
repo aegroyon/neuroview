@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { fetchAllImages } from "../../services/apiService";
+import { getAllImages } from "../../utils/flaskAPI";
 
 export default function Gallery({ filter = "All" }) {
   const [images, setImages] = useState([]);
@@ -47,7 +47,7 @@ export default function Gallery({ filter = "All" }) {
       try {
         setLoading(true);
         setError(null);
-        const response = await fetchAllImages();
+        const response = await getAllImages();
         // Backend returns {count: number, data: [...]} format
         setImages(response.data || []);
       } catch (err) {

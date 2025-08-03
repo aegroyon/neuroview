@@ -1,9 +1,9 @@
-'use client';
-import { useState } from 'react';
-import { handleImageUpload } from '../../controllers/imageController';
-import Header from '../components/Header';
-import ResultModal from '../components/ResultModal';
-import { useRouter } from 'next/navigation';
+"use client";
+import { useState } from "react";
+import { uploadImageWithPrediction } from "../../utils/flaskAPI";
+import Header from "../components/Header";
+import ResultModal from "../components/ResultModal";
+import { useRouter } from "next/navigation";
 
 export default function InputPage() {
   const router = useRouter();
@@ -50,12 +50,11 @@ export default function InputPage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await handleImageUpload(file);
-      console.log('Upload result:', res);
+      const res = await uploadImageWithPrediction(file);
       setResult(res);
       setShowModal(true); // Show modal after successful upload
     } catch (err) {
-      console.error('Upload error:', err);
+      console.error("Upload error:", err);
       setError(err.message);
     } finally {
       setLoading(false);
@@ -65,7 +64,7 @@ export default function InputPage() {
   return (
     <div className="bg-black min-h-screen">
       <Header />
-      
+
       {/* Main Content */}
       <div className="pt-16 min-h-screen flex items-center justify-center">
         <div className="max-w-4xl mx-auto p-8 w-full">
@@ -73,16 +72,20 @@ export default function InputPage() {
             {/* Upload Section */}
             <div className="text-center">
               <div className="flex items-center justify-center mb-8">
-                <h2 className="text-lg font-light text-gray-400 tracking-wider">UPLOAD</h2>
+                <h2 className="text-lg font-light text-gray-400 tracking-wider">
+                  UPLOAD
+                </h2>
                 <div className="ml-2 w-4 h-4 border border-gray-400 rounded-full flex items-center justify-center">
                   <span className="text-gray-400 text-xs">i</span>
                 </div>
               </div>
-              
+
               {/* Drag and Drop Area */}
               <div
                 className={`relative border-2 border-dashed rounded-lg p-20 transition-colors ${
-                  dragActive ? 'border-blue-400 bg-blue-50/5' : 'border-gray-600'
+                  dragActive
+                    ? "border-blue-400 bg-blue-50/5"
+                    : "border-gray-600"
                 }`}
                 onDragEnter={handleDrag}
                 onDragLeave={handleDrag}
@@ -96,17 +99,28 @@ export default function InputPage() {
                   className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                   id="file-upload"
                 />
-                
+
                 <div className="text-center">
-                  <img src="/upload.png" alt="Upload" className="w-16 h-16 mx-auto mb-8" />
+                  <img
+                    src="/upload.png"
+                    alt="Upload"
+                    className="w-16 h-16 mx-auto mb-8"
+                  />
                   <p className="text-2xl text-white font-light mb-4">
-                    Drag & Drop Files or{' '}
-                    <label htmlFor="file-upload" className="underline cursor-pointer hover:text-gray-300">
+                    Drag & Drop Files or{" "}
+                    <label
+                      htmlFor="file-upload"
+                      className="underline cursor-pointer hover:text-gray-300"
+                    >
                       Browse
                     </label>
                   </p>
-                  <p className="text-gray-400 text-base mb-2">Supported Formats: JPEG, PNG</p>
-                  <p className="text-gray-500 text-sm">Upload Limit: 1 image file only.</p>
+                  <p className="text-gray-400 text-base mb-2">
+                    Supported Formats: JPEG, PNG
+                  </p>
+                  <p className="text-gray-500 text-sm">
+                    Upload Limit: 1 image file only.
+                  </p>
                 </div>
               </div>
             </div>
@@ -114,9 +128,13 @@ export default function InputPage() {
             {/* Uploaded File Section */}
             {file && (
               <div>
-                <h3 className="text-lg font-light text-white mb-6">Uploaded File</h3>
+                <h3 className="text-lg font-light text-white mb-6">
+                  Uploaded File
+                </h3>
                 <div className="bg-transparent border border-gray-600 rounded-lg p-6 flex items-center justify-between">
-                  <span className="text-white font-light text-lg">{file.name}</span>
+                  <span className="text-white font-light text-lg">
+                    {file.name}
+                  </span>
                   <button
                     type="button"
                     onClick={removeFile}
@@ -136,7 +154,7 @@ export default function InputPage() {
                   disabled={loading}
                   className="bg-white text-black px-12 py-4 rounded-lg font-medium text-lg hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {loading ? 'Analyzing...' : 'Start Analysis'}
+                  {loading ? "Analyzing..." : "Start Analysis"}
                 </button>
               </div>
             )}
@@ -154,7 +172,7 @@ export default function InputPage() {
             isOpen={showModal}
             onClose={() => setShowModal(false)}
             result={result}
-            onGoToCollection={() => router.push('/collection')}
+            onGoToCollection={() => router.push("/collection")}
           />
         </div>
       </div>
